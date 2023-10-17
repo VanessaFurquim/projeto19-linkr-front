@@ -1,24 +1,17 @@
-import './App.css';
-import UserContext from './contexts/userContext';
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignUp from './pages/SignupPage';
-import SignIn from './pages/SigninPage';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignInPage from "./pages/signIn/SignInPage.js";
+import SignUpPage from "./pages/signUp/SignUpPage.js";
+import Timeline from "./pages/timeline/TimelinePage.js";
 
-function App() {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+export default function App() {
   return (
-    <div className="App">
-      <UserContext.Provider value={{ user, setUser }}>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<SignIn />} />
-                <Route path="/sign-up" element={<SignUp />} />
-            </Routes>
-          </BrowserRouter>
-        </UserContext.Provider>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SignInPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
+        <Route path="/timeline" element={<Timeline/>} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
