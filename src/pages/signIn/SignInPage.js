@@ -26,8 +26,8 @@ export default function Login() {
         const token = response.data.token;
         localStorage.setItem('token', token);
         localStorage.setItem("user", response.data.username);
-        localStorage.setItem("url", response.data.url);
-        localStorage.setItem("userid", response.data.id);
+        localStorage.setItem("picture", response.data.picture);
+        localStorage.setItem("userId", response.data.id);
         console.log(response.data)
 
         navigate("/timeline")
