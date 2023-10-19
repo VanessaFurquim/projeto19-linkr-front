@@ -55,7 +55,7 @@ export default function Navbar() {
                 <ContainerUserOpened>
                     <div>
                         <button onClick={handleCloseLogout}> <BiChevronUp /> </button>
-                        <img onClick={handleCloseLogout} src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn-aB5brTmpeDnB_5cPXLxQl-j0khXeQl25-xewz8n7M08IFk7mt3BV-TKlK77AgTMhLA&usqp=CAU"} alt={"Foto de perfil do usuário"} />
+                        <img onClick={handleCloseLogout} src={picture} alt={"Foto de perfil do usuário"} />
                     </div>
                     <button className="logoutButton" type="submit" onClick={logout}> Logout </button>
                 </ContainerUserOpened>
