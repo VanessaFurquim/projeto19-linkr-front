@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ContainerPostPublish } from "./styled";
 import apiPublishes from "../../services/apiPublishes";
@@ -8,7 +8,6 @@ export function NewPost() {
     const picture = localStorage.getItem("picture");
     const [form, setForm] = useState({ url: "", description: "" })
     const [send, setSend] = useState(false)
-    const navigate = useNavigate()
 
     function handleForm(e) {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -24,19 +23,17 @@ export function NewPost() {
         setSend(true);
 
         apiPublishes.postPublish(form, token)
-            .then(res => {
-                setSend(false)
-                setForm({ url: "", description: "" })
-                navigate("/timeline")
-                console.log("publicado!!")
-            })
-            .catch(err =>{
-                setSend(false);
-               
-                console.log(err.response.data)
-                alert("Houve um erro ao publicar seu link")
-            })
-
+        .then(res => {
+            setSend(false)
+            setForm({ url: "", description: "" })
+            window.location.reload();
+        })
+        .catch(err =>{
+            setSend(false);
+           
+            console.log(err.response.data)
+            alert("Houve um erro ao publicar seu link")
+        })
     }
 
     return (
