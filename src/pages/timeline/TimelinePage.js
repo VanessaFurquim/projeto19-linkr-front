@@ -75,9 +75,9 @@ export default function Timeline() {
                             <div className="avatar-like">
                                 <img src={p.picture} alt={p.username} />
                                 <div>
-                                    <button className="likebutton" > <BiHeart onClick={() => likes(p)} /> </button>
+                                    <button data-test="like-btn" className="likebutton" > <BiHeart onClick={() => likes(p)} /> </button>
                                 </div>
-                                <p> 13 likes</p>
+                                <p data-test="counter"> 13 likes</p>
                                 
                             </div>
 
