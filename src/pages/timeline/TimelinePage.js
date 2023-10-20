@@ -3,15 +3,14 @@ import Navbar from "../../components/navbar/Navbar.js";
 import { NewPost } from "../../components/newPost/NewPost.js";
 import { ContainerPublishes, ContainerTimelinePage, PublishCard } from "./styled.js";
 import apiPublishes from "../../services/apiPublishes.js";
-import feedvazio from "../../imgs/feedvazio.jpg"
 import { Link } from "react-router-dom";
+
 
 export default function Timeline() {
     const [publishes, setPublishes] = useState(undefined);
     const token = localStorage.getItem('token');
 
     useEffect(() => {
-
         apiPublishes.getPublishes(token)
             .then(res => {
                 setPublishes(res.data)
@@ -35,8 +34,7 @@ export default function Timeline() {
                         <NewPost />
 
                         <div className="feedvazio">
-                            <p>There are no posts yet</p>
-                            <img src={feedvazio} alt={"imagem para ilustrar que o feed está sem publicações"} />
+                            <p data-test="message">There are no posts yet</p>
                         </div>
 
                     </div>
@@ -56,12 +54,12 @@ export default function Timeline() {
                 </div>
                 <ContainerPublishes>
                     {publishes.map(p => (
-                        <PublishCard key={p.id}>
+                        <PublishCard key={p.id} data-test="post" >
                             <img src={p.picture} alt={p.username} />
                             <div>
-                                <h2>{p.username}</h2>
-                                <p>{p.post.description}</p>
-                                <Link to={p.post.url} target="_blank">
+                                <h2 data-test="username" >{p.username}</h2>
+                                <p data-test="description" >{p.post.description}</p>
+                                <Link to={p.post.url} target="_blank" data-test="link">
                                     <p>{p.post.url}</p>
                                 </Link>
                             </div>

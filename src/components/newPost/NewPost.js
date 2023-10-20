@@ -37,38 +37,38 @@ export function NewPost() {
     }
 
     return (
-        <ContainerPostPublish>
+        <ContainerPostPublish data-test="publish-box">
             <img src={picture} alt={"Foto de perfil do usuário"} />
             <div>
                 <h2>What are you going to share today?</h2>
                 {send === false ? (
                     <form onSubmit={post}>
                         <input
-                            data-test="" name="url"
+                             data-test="link" name="url"
                             placeholder="http://..." type="url" required
                             value={form.url} onChange={handleForm} 
                         />
                         <input
-                            data-test="" className="descriptionInput" name="description"
+                            data-test="description"  className="descriptionInput" name="description"
                             placeholder="Awesome article about #javascript" type="text"
                             value={form.description} onChange={handleForm} 
                         />
-                        <button type="submit" >Publish</button>
+                        <button type="submit" data-test="publish-btn">Publish</button>
                     </form>
                 ) : (
                     <form>
                         <input
-                            data-test="" name="url"
+                            data-test="link" name="url"
                             placeholder="http://..." type="url" required
                             value={form.url} onChange={handleForm} disabled={send}
                         />
                         <input
-                            data-test="" className="descriptionInput"
+                            data-test="description" className="descriptionInput"
                             name="description" placeholder="Awesome article about #javascript"
                             type="text"
                             value={form.description} onChange={handleForm} disabled={send}
                         />
-                        <button disabled={send}>Publishing...</button>
+                        <button disabled={send} data-test="publish-btn">Publishing...</button>
                     </form>
                 )}
 

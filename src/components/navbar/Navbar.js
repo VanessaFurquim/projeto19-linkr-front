@@ -48,16 +48,19 @@ export default function Navbar() {
             {openLogout === false ? (
                 <ContainerUserClosed onClick={handleLogout}>
                     <button > <BiChevronDown /> </button>
-                    <img src={picture} alt={"Foto de perfil do usuário"} />
+                    <img src={picture} alt={"Foto de perfil do usuário"} data-test="avatar" />
                 </ContainerUserClosed>
 
             ) : (
                 <ContainerUserOpened>
                     <div>
-                        <button onClick={handleCloseLogout}> <BiChevronUp /> </button>
-                        <img onClick={handleCloseLogout} src={picture} alt={"Foto de perfil do usuário"} />
+                        <button onClick={handleCloseLogout} > <BiChevronUp /> </button>
+                        <img onClick={handleCloseLogout} src={picture} alt={"Foto de perfil do usuário"} data-test="avatar" />
                     </div>
-                    <button className="logoutButton" type="submit" onClick={logout}> Logout </button>
+                    <div data-test="menu"  className="logoutButton">
+                    <button data-test="logout" type="submit" onClick={logout}> Logout </button>
+                    </div>
+                    
                 </ContainerUserOpened>
             )}
 

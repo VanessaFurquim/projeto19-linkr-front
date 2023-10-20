@@ -24,12 +24,17 @@ div{
 
 
 .feedvazio {
-img {
-  width: 620px;
-  height: 520px;
-  border-radius: 16px;
-  margin-top: 10px;
-}
+  background-color: transparent;
+  margin-top: 30px;
+  width: 611px;
+  height: 36px;
+
+  p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
 }
 
 
