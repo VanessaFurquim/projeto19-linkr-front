@@ -4,11 +4,14 @@ import { NewPost } from "../../components/newPost/NewPost.js";
 import { ContainerPublishes, ContainerTimelinePage, PublishCard } from "./styled.js";
 import apiPublishes from "../../services/apiPublishes.js";
 import { Link } from "react-router-dom";
+import { BiHeart } from "react-icons/bi/index.esm.js";
+
 
 
 export default function Timeline() {
     const [publishes, setPublishes] = useState(undefined);
     const token = localStorage.getItem('token');
+    const [like, setLike] = useState(0)
 
     useEffect(() => {
         apiPublishes.getPublishes(token)
@@ -19,7 +22,7 @@ export default function Timeline() {
             })
             .catch(erro => {
                 console.log(erro.response.data)
-                alert ("An error occured while trying to fetch the posts, please refresh the page")
+                alert("An error occured while trying to fetch the posts, please refresh the page")
             });
 
     }, []);
@@ -44,6 +47,20 @@ export default function Timeline() {
     }
 
 
+
+    function likes(p) {
+        const idPost = p.post.id;
+        console.log(idPost)
+
+        apiPublishes.postLike(idPost, token)
+            .then(res => {
+                console.log(res.data)
+                setLike(res.data)
+            })
+            .catch(erro =>{
+                alert(erro.response.data)})
+    }
+
     return (
         <>
             <Navbar />
@@ -55,7 +72,15 @@ export default function Timeline() {
                 <ContainerPublishes>
                     {publishes.map(p => (
                         <PublishCard key={p.id} data-test="post" >
-                            <img src={p.picture} alt={p.username} />
+                            <div className="avatar-like">
+                                <img src={p.picture} alt={p.username} />
+                                <div>
+                                    <button className="likebutton" > <BiHeart onClick={() => likes(p)} /> </button>
+                                </div>
+                                <p> 13 likes</p>
+                                
+                            </div>
+
                             <div>
                                 <h2 data-test="username" >{p.username}</h2>
                                 <p data-test="description" >{p.post.description}</p>

@@ -65,13 +65,48 @@ width: 720px;
 border-radius: 16px;
 font-family: 'Lato', sans-serif;
 margin-top: 20px;
+
+.avatar-like {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
  
-img{
+  img{
     width: 50px;
     height: 50px;
     border-radius: 26.5px;
-    margin: 10px;
+    margin: 20px;
   }
+
+  div{
+    width: 50px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .likebutton{  
+      background-color: transparent;
+      color: #ffffff;
+      width: 19.95px;
+      margin-right: 20px;
+    }
+  
+  }
+
+  p{
+      width: 50px;
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      color: #ffffff;
+    }
+
+}
+ 
+
 
 div{
   display: flex;
@@ -95,5 +130,3 @@ div{
 }
 
 `
-
-

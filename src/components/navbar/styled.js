@@ -83,7 +83,8 @@ button {
 
 img{
     width: 60px;
-    border-radius: 60px;
+    height: 60px;
+    border-radius: 26.6px;
 }
 
 `
@@ -108,6 +109,8 @@ button {
 img{
     width: 60px;
     border-radius: 60px;
+    height: 60px;
+    border-radius: 26.6px;
 }
 
 .logoutButton{
@@ -124,6 +127,7 @@ img{
   right: 8px;
   top: 55px;
   margin-top: 20px;
+  border-radius: 6px;
 }
 
 `

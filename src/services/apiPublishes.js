@@ -19,8 +19,13 @@ function getPublishes(token){
     return promise
 }
 
+function postLike(body, token){
+    const promise = axios.post(`${process.env.REACT_APP_API_URL}/like`,body, createConfig(token))
+    return promise
+}
 
 
-const apiPublishes = { postPublish , getPublishes};
+
+const apiPublishes = { postPublish , getPublishes, postLike};
 
 export default apiPublishes;
